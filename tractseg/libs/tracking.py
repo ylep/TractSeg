@@ -110,7 +110,10 @@ def track(bundle, peaks, output_dir, tracking_on_FODs, tracking_software, tracki
                     if tracking_algorithm == "FACT" or tracking_algorithm == "SD_STREAM":
                         seeds = 1000000
                     else:
-                        seeds = 200000
+                        # YL 2022-03-23: increase this from 2e5 to 2e6 to alloz
+                        # tracting the entire corpus callosum with 100000
+                        # fibers.
+                        seeds = 2000000
                     # Quite slow
                     # cutoff 0.1 gives more sensitive results than 0.05 (default) (tested for HCP msmt)
                     # - better for CA & FX (less oversegmentation)
